@@ -5,10 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Battleship Game</title>
-	<script src="/socket.io/socket.io.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
     <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-	<script src="util.js" type='text/javascript'></script>
+    <script src="util.js" type='text/javascript'></script>
     <script src="gamelogic.js"></script>
     <link rel="stylesheet" href="gamestyle.css">
 </head>
@@ -19,19 +19,21 @@
     <div class="control-window">
         <div id="game-create-panel" class="menu-container">
             <button id="new-game" class="btn">Tạo Game</button>
-			<button id="join-game" class="btn">Tham gia</button>
-		</div>
-		<div id="game-id-panel" class="menu-container">
+            <button id="join-game" class="btn">Tham gia</button>
+        </div>
+        <div id="game-id-panel" class="menu-container">
+            <p class="name-text guide-text">Gửi ID vừa tạo cho người khác.</p>
+            <br>
             <p class="name-text id-text">Game ID: </p>
-			<input id="game-id" type="text" width="2">
+            <input id="game-id" type="text" width="2">
         </div>
     </div>
 
     <div id="game-board">
-		<div class="game-status-container">
-			<h3 id="game-status-text" class="grid-title status-text"></h3>
-		</div>
-		
+        <div class="game-status-container">
+            <h3 id="game-status-text" class="grid-title status-text"></h3>
+        </div>
+        
         <!-- Opponent board -->
         <h3 id="opponent-grid-title" class="grid-title">Hạm đội đối thủ</h3>
         <div id="opponent-grid" class="grid">
@@ -48,11 +50,11 @@
             <div class="space"><span class="label">9</span></div>
             <div class="space"><span class="label">10</span></div>
 
-            <div class="space"><span class="label">A</span></div>			
+            <div class="space"><span class="label">A</span></div>           
             <div id="o-A1" class="space"><span class="marker"></span></div>
             <div id="o-A2" class="space"><span class="marker"></span></div>
             <div id="o-A3" class="space"><span class="marker"></span></div>
-			<div id="o-A4" class="space"><span class="marker"></span></div>
+            <div id="o-A4" class="space"><span class="marker"></span></div>
             <div id="o-A5" class="space"><span class="marker"></span></div>
             <div id="o-A6" class="space"><span class="marker"></span></div>
             <div id="o-A7" class="space"><span class="marker"></span></div>
@@ -60,11 +62,11 @@
             <div id="o-A9" class="space"><span class="marker"></span></div>
             <div id="o-A10" class="space"><span class="marker"></span></div>
 
-            <div class="space"><span class="label">B</span></div>			
+            <div class="space"><span class="label">B</span></div>           
             <div id="o-B1" class="space"><span class="marker"></span></div>
             <div id="o-B2" class="space"><span class="marker"></span></div>
             <div id="o-B3" class="space"><span class="marker"></span></div>
-			<div id="o-B4" class="space"><span class="marker"></span></div>
+            <div id="o-B4" class="space"><span class="marker"></span></div>
             <div id="o-B5" class="space"><span class="marker"></span></div>
             <div id="o-B6" class="space"><span class="marker"></span></div>
             <div id="o-B7" class="space"><span class="marker"></span></div>
@@ -72,35 +74,35 @@
             <div id="o-B9" class="space"><span class="marker"></span></div>
             <div id="o-B10" class="space"><span class="marker"></span></div>
 
-            <div class="space"><span class="label">C</span></div>			
+            <div class="space"><span class="label">C</span></div>           
             <div id="o-C1" class="space"><span class="marker"></span></div>
             <div id="o-C2" class="space"><span class="marker"></span></div>
             <div id="o-C3" class="space"><span class="marker"></span></div>
-			<div id="o-C4" class="space"><span class="marker"></span></div>
+            <div id="o-C4" class="space"><span class="marker"></span></div>
             <div id="o-C5" class="space"><span class="marker"></span></div>
             <div id="o-C6" class="space"><span class="marker"></span></div>
             <div id="o-C7" class="space"><span class="marker"></span></div>
             <div id="o-C8" class="space"><span class="marker"></span></div>
             <div id="o-C9" class="space"><span class="marker"></span></div>
             <div id="o-C10" class="space"><span class="marker"></span></div>
-			
-            <div class="space"><span class="label">D</span></div>			
+            
+            <div class="space"><span class="label">D</span></div>           
             <div id="o-D1" class="space"><span class="marker"></span></div>
             <div id="o-D2" class="space"><span class="marker"></span></div>
             <div id="o-D3" class="space"><span class="marker"></span></div>
-			<div id="o-D4" class="space"><span class="marker"></span></div>
+            <div id="o-D4" class="space"><span class="marker"></span></div>
             <div id="o-D5" class="space"><span class="marker"></span></div>
             <div id="o-D6" class="space"><span class="marker"></span></div>
             <div id="o-D7" class="space"><span class="marker"></span></div>
             <div id="o-D8" class="space"><span class="marker"></span></div>
             <div id="o-D9" class="space"><span class="marker"></span></div>
             <div id="o-D10" class="space"><span class="marker"></span></div>
-			
-            <div class="space"><span class="label">E</span></div>			
+            
+            <div class="space"><span class="label">E</span></div>           
             <div id="o-E1" class="space"><span class="marker"></span></div>
             <div id="o-E2" class="space"><span class="marker"></span></div>
             <div id="o-E3" class="space"><span class="marker"></span></div>
-			<div id="o-E4" class="space"><span class="marker"></span></div>
+            <div id="o-E4" class="space"><span class="marker"></span></div>
             <div id="o-E5" class="space"><span class="marker"></span></div>
             <div id="o-E6" class="space"><span class="marker"></span></div>
             <div id="o-E7" class="space"><span class="marker"></span></div>
@@ -108,11 +110,11 @@
             <div id="o-E9" class="space"><span class="marker"></span></div>
             <div id="o-E10" class="space"><span class="marker"></span></div>
 
-            <div class="space"><span class="label">F</span></div>			
+            <div class="space"><span class="label">F</span></div>           
             <div id="o-F1" class="space"><span class="marker"></span></div>
             <div id="o-F2" class="space"><span class="marker"></span></div>
             <div id="o-F3" class="space"><span class="marker"></span></div>
-			<div id="o-F4" class="space"><span class="marker"></span></div>
+            <div id="o-F4" class="space"><span class="marker"></span></div>
             <div id="o-F5" class="space"><span class="marker"></span></div>
             <div id="o-F6" class="space"><span class="marker"></span></div>
             <div id="o-F7" class="space"><span class="marker"></span></div>
@@ -120,11 +122,11 @@
             <div id="o-F9" class="space"><span class="marker"></span></div>
             <div id="o-F10" class="space"><span class="marker"></span></div>
 
-            <div class="space"><span class="label">G</span></div>			
+            <div class="space"><span class="label">G</span></div>           
             <div id="o-G1" class="space"><span class="marker"></span></div>
             <div id="o-G2" class="space"><span class="marker"></span></div>
             <div id="o-G3" class="space"><span class="marker"></span></div>
-			<div id="o-G4" class="space"><span class="marker"></span></div>
+            <div id="o-G4" class="space"><span class="marker"></span></div>
             <div id="o-G5" class="space"><span class="marker"></span></div>
             <div id="o-G6" class="space"><span class="marker"></span></div>
             <div id="o-G7" class="space"><span class="marker"></span></div>
@@ -132,11 +134,11 @@
             <div id="o-G9" class="space"><span class="marker"></span></div>
             <div id="o-G10" class="space"><span class="marker"></span></div>
 
-            <div class="space"><span class="label">H</span></div>			
+            <div class="space"><span class="label">H</span></div>           
             <div id="o-H1" class="space"><span class="marker"></span></div>
             <div id="o-H2" class="space"><span class="marker"></span></div>
             <div id="o-H3" class="space"><span class="marker"></span></div>
-			<div id="o-H4" class="space"><span class="marker"></span></div>
+            <div id="o-H4" class="space"><span class="marker"></span></div>
             <div id="o-H5" class="space"><span class="marker"></span></div>
             <div id="o-H6" class="space"><span class="marker"></span></div>
             <div id="o-H7" class="space"><span class="marker"></span></div>
@@ -144,23 +146,23 @@
             <div id="o-H9" class="space"><span class="marker"></span></div>
             <div id="o-H10" class="space"><span class="marker"></span></div>
 
-            <div class="space"><span class="label">I</span></div>			
+            <div class="space"><span class="label">I</span></div>           
             <div id="o-I1" class="space"><span class="marker"></span></div>
             <div id="o-I2" class="space"><span class="marker"></span></div>
             <div id="o-I3" class="space"><span class="marker"></span></div>
-			<div id="o-I4" class="space"><span class="marker"></span></div>
+            <div id="o-I4" class="space"><span class="marker"></span></div>
             <div id="o-I5" class="space"><span class="marker"></span></div>
             <div id="o-I6" class="space"><span class="marker"></span></div>
             <div id="o-I7" class="space"><span class="marker"></span></div>
             <div id="o-I8" class="space"><span class="marker"></span></div>
             <div id="o-I9" class="space"><span class="marker"></span></div>
             <div id="o-I10" class="space"><span class="marker"></span></div>
-			
-            <div class="space"><span class="label">J</span></div>			
+            
+            <div class="space"><span class="label">J</span></div>           
             <div id="o-J1" class="space"><span class="marker"></span></div>
             <div id="o-J2" class="space"><span class="marker"></span></div>
             <div id="o-J3" class="space"><span class="marker"></span></div>
-			<div id="o-J4" class="space"><span class="marker"></span></div>
+            <div id="o-J4" class="space"><span class="marker"></span></div>
             <div id="o-J5" class="space"><span class="marker"></span></div>
             <div id="o-J6" class="space"><span class="marker"></span></div>
             <div id="o-J7" class="space"><span class="marker"></span></div>
@@ -187,11 +189,11 @@
             <div class="space"><span class="label">9</span></div>
             <div class="space"><span class="label">10</span></div>
 
-            <div class="space"><span class="label">A</span></div>			
+            <div class="space"><span class="label">A</span></div>           
             <div id="p-A1" class="space"><span class="marker"></span></div>
             <div id="p-A2" class="space"><span class="marker"></span></div>
             <div id="p-A3" class="space"><span class="marker"></span></div>
-			<div id="p-A4" class="space"><span class="marker"></span></div>
+            <div id="p-A4" class="space"><span class="marker"></span></div>
             <div id="p-A5" class="space"><span class="marker"></span></div>
             <div id="p-A6" class="space"><span class="marker"></span></div>
             <div id="p-A7" class="space"><span class="marker"></span></div>
@@ -199,11 +201,11 @@
             <div id="p-A9" class="space"><span class="marker"></span></div>
             <div id="p-A10" class="space"><span class="marker"></span></div>
 
-            <div class="space"><span class="label">B</span></div>			
+            <div class="space"><span class="label">B</span></div>           
             <div id="p-B1" class="space"><span class="marker"></span></div>
             <div id="p-B2" class="space"><span class="marker"></span></div>
             <div id="p-B3" class="space"><span class="marker"></span></div>
-			<div id="p-B4" class="space"><span class="marker"></span></div>
+            <div id="p-B4" class="space"><span class="marker"></span></div>
             <div id="p-B5" class="space"><span class="marker"></span></div>
             <div id="p-B6" class="space"><span class="marker"></span></div>
             <div id="p-B7" class="space"><span class="marker"></span></div>
@@ -211,35 +213,35 @@
             <div id="p-B9" class="space"><span class="marker"></span></div>
             <div id="p-B10" class="space"><span class="marker"></span></div>
 
-            <div class="space"><span class="label">C</span></div>			
+            <div class="space"><span class="label">C</span></div>           
             <div id="p-C1" class="space"><span class="marker"></span></div>
             <div id="p-C2" class="space"><span class="marker"></span></div>
             <div id="p-C3" class="space"><span class="marker"></span></div>
-			<div id="p-C4" class="space"><span class="marker"></span></div>
+            <div id="p-C4" class="space"><span class="marker"></span></div>
             <div id="p-C5" class="space"><span class="marker"></span></div>
             <div id="p-C6" class="space"><span class="marker"></span></div>
             <div id="p-C7" class="space"><span class="marker"></span></div>
             <div id="p-C8" class="space"><span class="marker"></span></div>
             <div id="p-C9" class="space"><span class="marker"></span></div>
             <div id="p-C10" class="space"><span class="marker"></span></div>
-			
-            <div class="space"><span class="label">D</span></div>			
+            
+            <div class="space"><span class="label">D</span></div>           
             <div id="p-D1" class="space"><span class="marker"></span></div>
             <div id="p-D2" class="space"><span class="marker"></span></div>
             <div id="p-D3" class="space"><span class="marker"></span></div>
-			<div id="p-D4" class="space"><span class="marker"></span></div>
+            <div id="p-D4" class="space"><span class="marker"></span></div>
             <div id="p-D5" class="space"><span class="marker"></span></div>
             <div id="p-D6" class="space"><span class="marker"></span></div>
             <div id="p-D7" class="space"><span class="marker"></span></div>
             <div id="p-D8" class="space"><span class="marker"></span></div>
             <div id="p-D9" class="space"><span class="marker"></span></div>
             <div id="p-D10" class="space"><span class="marker"></span></div>
-			
-            <div class="space"><span class="label">E</span></div>			
+            
+            <div class="space"><span class="label">E</span></div>           
             <div id="p-E1" class="space"><span class="marker"></span></div>
             <div id="p-E2" class="space"><span class="marker"></span></div>
             <div id="p-E3" class="space"><span class="marker"></span></div>
-			<div id="p-E4" class="space"><span class="marker"></span></div>
+            <div id="p-E4" class="space"><span class="marker"></span></div>
             <div id="p-E5" class="space"><span class="marker"></span></div>
             <div id="p-E6" class="space"><span class="marker"></span></div>
             <div id="p-E7" class="space"><span class="marker"></span></div>
@@ -247,11 +249,11 @@
             <div id="p-E9" class="space"><span class="marker"></span></div>
             <div id="p-E10" class="space"><span class="marker"></span></div>
 
-            <div class="space"><span class="label">F</span></div>			
+            <div class="space"><span class="label">F</span></div>           
             <div id="p-F1" class="space"><span class="marker"></span></div>
             <div id="p-F2" class="space"><span class="marker"></span></div>
             <div id="p-F3" class="space"><span class="marker"></span></div>
-			<div id="p-F4" class="space"><span class="marker"></span></div>
+            <div id="p-F4" class="space"><span class="marker"></span></div>
             <div id="p-F5" class="space"><span class="marker"></span></div>
             <div id="p-F6" class="space"><span class="marker"></span></div>
             <div id="p-F7" class="space"><span class="marker"></span></div>
@@ -259,11 +261,11 @@
             <div id="p-F9" class="space"><span class="marker"></span></div>
             <div id="p-F10" class="space"><span class="marker"></span></div>
 
-            <div class="space"><span class="label">G</span></div>			
+            <div class="space"><span class="label">G</span></div>           
             <div id="p-G1" class="space"><span class="marker"></span></div>
             <div id="p-G2" class="space"><span class="marker"></span></div>
             <div id="p-G3" class="space"><span class="marker"></span></div>
-			<div id="p-G4" class="space"><span class="marker"></span></div>
+            <div id="p-G4" class="space"><span class="marker"></span></div>
             <div id="p-G5" class="space"><span class="marker"></span></div>
             <div id="p-G6" class="space"><span class="marker"></span></div>
             <div id="p-G7" class="space"><span class="marker"></span></div>
@@ -271,11 +273,11 @@
             <div id="p-G9" class="space"><span class="marker"></span></div>
             <div id="p-G10" class="space"><span class="marker"></span></div>
 
-            <div class="space"><span class="label">H</span></div>			
+            <div class="space"><span class="label">H</span></div>           
             <div id="p-H1" class="space"><span class="marker"></span></div>
             <div id="p-H2" class="space"><span class="marker"></span></div>
             <div id="p-H3" class="space"><span class="marker"></span></div>
-			<div id="p-H4" class="space"><span class="marker"></span></div>
+            <div id="p-H4" class="space"><span class="marker"></span></div>
             <div id="p-H5" class="space"><span class="marker"></span></div>
             <div id="p-H6" class="space"><span class="marker"></span></div>
             <div id="p-H7" class="space"><span class="marker"></span></div>
@@ -283,23 +285,23 @@
             <div id="p-H9" class="space"><span class="marker"></span></div>
             <div id="p-H10" class="space"><span class="marker"></span></div>
 
-            <div class="space"><span class="label">I</span></div>			
+            <div class="space"><span class="label">I</span></div>           
             <div id="p-I1" class="space"><span class="marker"></span></div>
             <div id="p-I2" class="space"><span class="marker"></span></div>
             <div id="p-I3" class="space"><span class="marker"></span></div>
-			<div id="p-I4" class="space"><span class="marker"></span></div>
+            <div id="p-I4" class="space"><span class="marker"></span></div>
             <div id="p-I5" class="space"><span class="marker"></span></div>
             <div id="p-I6" class="space"><span class="marker"></span></div>
             <div id="p-I7" class="space"><span class="marker"></span></div>
             <div id="p-I8" class="space"><span class="marker"></span></div>
             <div id="p-I9" class="space"><span class="marker"></span></div>
             <div id="p-I10" class="space"><span class="marker"></span></div>
-			
-            <div class="space"><span class="label">J</span></div>			
+            
+            <div class="space"><span class="label">J</span></div>           
             <div id="p-J1" class="space"><span class="marker"></span></div>
             <div id="p-J2" class="space"><span class="marker"></span></div>
             <div id="p-J3" class="space"><span class="marker"></span></div>
-			<div id="p-J4" class="space"><span class="marker"></span></div>
+            <div id="p-J4" class="space"><span class="marker"></span></div>
             <div id="p-J5" class="space"><span class="marker"></span></div>
             <div id="p-J6" class="space"><span class="marker"></span></div>
             <div id="p-J7" class="space"><span class="marker"></span></div>
@@ -322,7 +324,7 @@
                 <button id="place-confirm" class="placement-button">Xác nhận</button>
             </div>
         </div>
-		<div id="ready-panel" class="control-window">
+        <div id="ready-panel" class="control-window">
             <div class="menu-container">
                 <button id="game-ready" class="btn">Sẵn sàng</button>
             </div>
