@@ -1,6 +1,7 @@
 // Initialize variables
 var playing = false;
 var ready = false;
+var start = false;
 
 const PlayerIndex = 0;
 const OpponentIndex = 1;
@@ -89,6 +90,7 @@ $(document).ready(function () {
 
     socket.on('start', function (data) {
         console.log("game-start");
+        start = true;
         setUpFire();
         showTurn();
     });
@@ -152,6 +154,7 @@ function newGame() {
 
     playing = true;
     ready = false;
+    start = false;
 
     Fleets[PlayerIndex] = createFleet();
     Boards[PlayerIndex] = createBoard();
@@ -305,7 +308,7 @@ function setUpFire() {
         for (let col = 1; col <= 10; col++) {
             $("#o-" + CoordinateLetterValues[row] + "" + col).unbind().click(function () {
 
-                if (!game.player.turn || !playing || !ready)
+                if (!game.player.turn || !playing || !ready || !start)
                     return;
 
                 var inputValue = this.id.substr(2);
