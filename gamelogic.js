@@ -359,7 +359,6 @@ function checkHit(index, target) {
         }
     }
     if (isHit) {
-        $(prefix + CoordinateLetterValues[row] + "" + col + " > span").addClass("hit");
         if (Fleets[index][i].health <= 0) {
             //sunk
             ShipsLeft[index]--;
@@ -371,6 +370,7 @@ function checkHit(index, target) {
                     locationElement.addClass("ship-space");
             }
         }
+        $(prefix + CoordinateLetterValues[row] + "" + col + " > span").addClass("hit");
     } else {
         $(prefix + CoordinateLetterValues[row] + "" + col + " > span").addClass("miss");
     }
