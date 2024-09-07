@@ -5,15 +5,12 @@ const server = require('http').Server(app);
 const io = require('socket.io')(server);
 
 const port = (process.env.PORT || 3000);
-//server.listen(port);
-server.listen(8000, '192.168.0.234' || 'localhost', function () {
-    console.log('Application worker ' + process.pid + ' started...');
-});
+server.listen(port);
 
 // Send index file when there is a connection
 app.use(express.static(__dirname + '/public'));
 app.get('/', function (req, res) {
-    res.sendFile('battleship.html', { root: __dirname + '/public' });
+    res.sendFile('index.html', { root: __dirname + '/public' });
 });
 
 class Player {
