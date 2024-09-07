@@ -8,9 +8,9 @@ const port = (process.env.PORT || 3000);
 server.listen(port);
 
 // Send index file when there is a connection
-app.use(express.static(__dirname + '/public'));
+app.use(express.static(__dirname));
 app.get('/', function (req, res) {
-    res.sendFile('index.html', { root: __dirname + '/public' });
+    res.sendFile('index.html', { root: __dirname });
 });
 
 class Player {
