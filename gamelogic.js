@@ -28,6 +28,7 @@ const socket = io();
 
 function initGame() {
     $("#game-board").hide();
+     $("#game-status-text").html"");
 }
 
 $(document).ready(function () {
@@ -115,7 +116,7 @@ $(document).ready(function () {
             fleet: Fleets[PlayerIndex]
         });
         $("#placement-panel").hide();
-        $("#game-ready").hide();
+        $("#ready-panel").hide();
     });
 
     socket.on('failed', function (data) {
@@ -154,7 +155,7 @@ function newGame() {
 
     Fleets[PlayerIndex] = createFleet();
     Boards[PlayerIndex] = createBoard();
-
+    Fleets
     Guesses = [[], []];
     ShipsLeft = [5, 5];
 
@@ -304,7 +305,7 @@ function setUpFire() {
         for (let col = 1; col <= 10; col++) {
             $("#o-" + CoordinateLetterValues[row] + "" + col).unbind().click(function () {
 
-                if (!game.player.turn || !playing)
+                if (!game.player.turn || !playing || !ready)
                     return;
 
                 var inputValue = this.id.substr(2);
