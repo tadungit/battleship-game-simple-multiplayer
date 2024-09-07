@@ -155,7 +155,7 @@ function newGame() {
 
     Fleets[PlayerIndex] = createFleet();
     Boards[PlayerIndex] = createBoard();
-    Fleets
+    
     Guesses = [[], []];
     ShipsLeft = [5, 5];
 
