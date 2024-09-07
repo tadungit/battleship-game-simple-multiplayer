@@ -28,7 +28,7 @@ const socket = io();
 
 function initGame() {
     $("#game-board").hide();
-     $("#game-status-text").html"");
+    $("#game-status-text").html("");
 }
 
 $(document).ready(function () {
