@@ -1,0 +1,23 @@
+{
+  "name": "battle-ship-game",
+  "version": "1.0.0",
+  "description": "Battle Ship Game",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "none"
+  },
+  "keywords": [
+    "battleship",
+    "game"
+  ],
+  "author": "dung.tt5",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.19.2",
+    "socket.io": "^4.7.5"
+  }
+}
