@@ -6,15 +6,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Battleship Game</title>
     <script src="/socket.io/socket.io.js"></script>
-    <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <script src="util.js" type='text/javascript'></script>
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+    <script src="languages.js"></script>
+    <script src="util.js"></script>
     <script src="gamelogic.js"></script>
     <link rel="stylesheet" href="gamestyle.css">
 </head>
 
 <body>
     <h1 id="title">Battleship Game</h1>
+    <div class="control-window">
+        <div id="game-create-panel" class="menu-container">
+        <form>
+            <label for="lang-switch">
+                <span id="lang-lable" class="name-text id-text">Ngôn ngữ</span>
+            </label>
+            <select id="lang-switch">
+                <option value="vi" selected>Tiếng Việt</option>
+                <option value="en">English</option>
+            </select>
+        </form>
+        </div>
+    </div>
 
     <div class="control-window">
         <div id="game-create-panel" class="menu-container">
@@ -22,7 +36,7 @@
             <button id="join-game" class="btn">Tham gia</button>
         </div>
         <div id="game-id-panel" class="menu-container">
-            <p class="name-text guide-text">Gửi ID vừa tạo cho người khác.</p>
+            <p id="label-send-id" class="name-text guide-text">Gửi ID vừa tạo cho người khác</p>
             <br>
             <p class="name-text id-text">Game ID: </p>
             <input id="game-id" type="text" width="2">
@@ -314,7 +328,7 @@
         <!-- Placement Panel -->
         <div id="placement-panel" class="control-window">
             <div class="ship-placement-container">
-                <p class="name-text place-guide-text">Click để đặt thuyền.</p>
+                <p id="lable-guide-placement" class="name-text place-guide-text">Click để đặt thuyền</p>
                 <br>
                 <p id="ship-label">Đặt thuyền: <span id="place-Carrier">Carrier</span></p>
                 <p id="horizontal-label">Ngang</p>
