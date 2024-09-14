@@ -26,7 +26,7 @@ function setLangEnForElements() {
     $("#opponent-grid-title").html("Opponent's Board");
     $("#player-grid-title").html("Your Board");
     $("#lable-guide-placement").html("Click to place Ships");
-    $("#ship-label").html("Place the: ");
+    $("#ship-label").html('Place the: <span id="place-Carrier">Carrier</span>');
     $("#horizontal-label").html("Horizontally");
     $("#vertical-label").html("Vertically");
     $("#place-confirm").html("Confirm");
@@ -42,7 +42,7 @@ function setLangViForElements() {
     $("#opponent-grid-title").html("Hạm đội đối thủ");
     $("#player-grid-title").html("Hạm đội của tôi");
     $("#lable-guide-placement").html("Click để đặt thuyền");
-    $("#ship-label").html("Đặt thuyền: ");
+    $("#ship-label").html('Đặt thuyền: <span id="place-Carrier">Carrier</span>');
     $("#horizontal-label").html("Ngang");
     $("#vertical-label").html("Dọc");
     $("#place-confirm").html("Xác nhận");
