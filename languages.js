@@ -1,18 +1,21 @@
-setLangViForElements();
-$("#lang-switch").change(function () { // put onchange event when user select option from select
-    var lang = $(this).val(); // decide which language to display using switch case. The rest is obvious (i think)
-    console.log("lang-switch to " + lang);
-    switch (lang) {
-        case "en":
-            $("#lang-lable").html("Language");            
-            setLangEnForElements();            
-        	break;
-        case "vi":
-        default:
-            $("#lang-lable").html("Ngôn ngữ");
-            setLangViForElements();
-            break;
-        }
+$(document).ready(function () {
+    setLangViForElements();
+
+    $("#lang-switch").change(function () { // put onchange event when user select option from select
+        var lang = $(this).val(); // decide which language to display using switch case. The rest is obvious (i think)
+        console.log("lang-switch to " + lang);
+        switch (lang) {
+            case "en":
+                $("#lang-lable").html("Language");            
+                setLangEnForElements();            
+                break;
+            case "vi":
+            default:
+                $("#lang-lable").html("Ngôn ngữ");
+                setLangViForElements();
+                break;
+            }
+    });
 });
 
 function setLangEnForElements() {
